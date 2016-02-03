@@ -29,4 +29,27 @@ namespace ProgramingCsharpSamples
 
         public delegate bool Predicate<T>(T obj);
     }
+
+    internal class Program
+    {
+        static void main(String[] args)
+        {
+            // static method in other class 
+            Predicate<int> p1 = Tests.IsGraterThanZero;
+            // static method in other class 
+            Predicate<int> p2 = Tests.IsLessTenZero;
+        }
+    }
+    internal class Tests
+    {
+        public static bool IsGraterThanZero(int value)
+        {
+            return value > 0;
+        }
+
+        public static bool IsLessTenZero(int value)
+        {
+            return value < 0;
+        }
+    }
 }
