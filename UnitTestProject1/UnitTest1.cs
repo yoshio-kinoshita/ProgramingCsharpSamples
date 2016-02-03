@@ -71,5 +71,14 @@ namespace UnitTestProject1
 
         }
 
+       [TestMethod()]
+        public void GetIndexOfFirstNonEmptyBinTest()
+        {
+            int[] bins = {-1, 0, 1,2,3,4,5};
+            int index = DelegateSample.GetIndexOfFirstNonEmptyBin(bins);
+            Assert.AreEqual(2, index);
+
+        }
     }
+
 }
