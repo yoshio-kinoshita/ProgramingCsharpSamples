@@ -28,6 +28,12 @@ namespace ProgramingCsharpSamples
 
 
         public delegate bool Predicate<T>(T obj);
+
+        public static bool IsLongString(object o)
+        {
+            var s = o as string;
+            return s != null && s.Length > 20;
+        }
     }
 
     internal class Program
@@ -52,4 +58,23 @@ namespace ProgramingCsharpSamples
             return value < 0;
         }
     }
+
+
+    // 暗黙的インスタンスデリゲート
+    public class ThresholdComparer
+    {
+        public int Threhold { get; set; }
+
+        public bool IsGraterThan(int value)
+        {
+            return value > Threhold;
+        }
+
+        public Predicate<int> GetIsGraterThanPredicate()
+        {
+            return IsGraterThan;
+        }
+    }
+
+
 }
